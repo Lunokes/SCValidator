@@ -14,7 +14,7 @@ var gulp = require('gulp'),
 
 //Image compression using imagemin but their jpg/jpeg compression isn't very good so we're using mozjpeg in the next task
 gulp.task('imgs', ['jpg-shrink'], function () {
-    return gulp.src(['./src/imgs/*.png','./src/imgs/*.svg'])
+    return gulp.src(['./src/imgs/*.jpg', './src/imgs/*.png','./src/imgs/*.svg'])
         .pipe(imagemin({
             progressive: false,
             svgoPlugins: [{removeViewBox: false}],
@@ -71,11 +71,6 @@ gulp.task('html-compile', function() {
         .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('reset-css', function() {
-	return gulp.src('./src/css/reset.css')
-			.pipe(gulp.dest('./dist/css'));
-});
-
 
 //watch
 gulp.task('browser-sync', function() {
@@ -93,6 +88,6 @@ gulp.task('watcher', function() {
 	gulp.watch(['./src/config.json'], ['autoprefix']);
 });
 
-gulp.task('default', ['reset-css','html-compile','autoprefix','browser-sync', 'watcher']);
+gulp.task('default', ['html-compile', 'imgs', 'autoprefix','browser-sync', 'watcher']);
 
 gulp.task('deploy', ['imgs','html-compile','autoprefix']);

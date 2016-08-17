@@ -1,35 +1,354 @@
-// Main styles
+html, body {
+	height: 100%;
+	margin: 0;
+}
 
-@charset "utf-8";
+html, body {
+	background: #1A1D1F;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
 
 
-/* This stops the initial white background issue and set the padding above the OSR */
-.osr-content { background-color: transparent !important; top: 10% !important; }
 
-/* This lets you control the colour of the see-through overlay */
-.osr-overlay { background-color: rgba(0,0,0,0.7) !important; }
-
-/* Fix to make sure the div doesn't appear at the bottom of the page (it shouldn't any way, but there's a bug that causes it to). The 1px by 1px lets it pre-load assets. */
-div.hidden { height: 1px; width: 1px; display: none; }
-
-
-/***************** Your Desktop Styles Below *****************/
-
-#wrapper-sc {
-	font-family: sans-serif;
-	display: block;
+#wrapper {
+	margin: 0 auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
-    width: 500px;
-	margin: 0px auto;
+
+	height: 100%;
+	width: 100%;
+
+	img {
+		display: block;
+	}
+
+	header {
+		padding: 12px 30px 12px 20px;
+		background-color: #000000;
+
+		.logotitle {
+			float: left;
+
+			img {
+				display: inline-block;
+				float:left;
+				width: 40px;
+				height: 40px;
+			}
+
+			h1 {
+				display: inline-block;
+				float:left;
+				color: #fff;
+				line-height: 40px;
+				height: 40px;
+				font-size: 20px;
+				font-family: $font-stack;
+				padding-left: 10px;
+				letter-spacing: 0.03em;
+			}
+
+		}
+
+		.errorchecklist {
+			float: right;
+
+			img {
+				display: inline-block;
+				float:left;
+				width: 30px;
+				height: 30px;
+				padding-top: 5px;
+				transition: 0.3s all ease;
+
+				&:hover {
+					filter: invert(100%);
+				}
+			}
+
+			h2 {
+				display: inline-block;
+				float:left;
+				color: #fff;
+				line-height: 40px;
+				height: 40px;
+				font-size: 20px;
+				font-family: $font-stack;
+				padding-right: 10px;
+				letter-spacing: 0.03em;
+				transition: 0.3s all ease;
+
+				&:hover {
+					opacity: 0.8;
+				}
+			}
+
+		}
+
+	}
+
+
+
+
+	#content {
+		
+	    height: calc(100% - 64px);
+
+		.content-left {
+			float: left;
+			width: 49%;
+			color: #fff;
+			min-height: 100%;
+			background-color: #1a1d1f;
+
+			display: -ms-flexbox;
+		    display: -webkit-flex;
+		    display: flex;
+		    -webkit-flex-direction: column;
+		    -ms-flex-direction: column;
+		    flex-direction: column;
+		    -webkit-flex-wrap: nowrap;
+		    -ms-flex-wrap: nowrap;
+		    flex-wrap: nowrap;
+		    -webkit-justify-content: center;
+		    -ms-flex-pack: center;
+		    justify-content: center;
+		    -webkit-align-content: stretch;
+		    -ms-flex-line-pack: stretch;
+		    align-content: stretch;
+		    -webkit-align-items: stretch;
+		    -ms-flex-align: stretch;
+		    align-items: stretch;
+
+		    .codebox {
+			    -webkit-order: 0;
+			    -ms-flex-order: 0;
+			    order: 0;
+			    -webkit-flex: 12 1 auto;
+			    -ms-flex: 12 1 auto;
+			    flex: 12 1 auto;
+			    -webkit-align-self: auto;
+			    -ms-flex-item-align: auto;
+			    align-self: auto;
+			    display: flex;
+
+			    textarea {
+			    	flex: 1;
+			    	width: 100%;
+			    	overflow: hidden;
+			    	background-color: #616e73;
+			    	resize: none;
+			    	border: none;
+			    	outline: none;
+			    }
+			}
+
+			.affbox {
+			    -webkit-order: 0;
+			    -ms-flex-order: 0;
+			    order: 0;
+			    -webkit-flex: 2 2 auto;
+			    -ms-flex: 2 2 auto;
+			    flex: 2 2 auto;
+			    -webkit-align-self: auto;
+			    -ms-flex-item-align: auto;
+			    align-self: auto;
+			    position: relative;
+
+			    background-color:#1a1d1f;
+			    border-top: 1px solid #616e73;
+			    padding: 40px 20px 20px 20px;
+
+			    p {
+			    	color: #00adee;
+					font-size: 20px;
+					font-family: $font-stack;
+					letter-spacing: 0.03em;
+			    }
+
+			    textarea {
+			    	width: calc(100% - 40px);
+			    	height: 60px;
+			    	margin-top:15px;
+			    	position: absolute;
+			    	background-color: #2e3437;
+			    	border: 1px solid #616e73;
+			    	box-sizing: border-box;
+			    	padding: 10px;
+			    	color: #d9d9d9;
+					font-size: 15px;
+					line-height: 18px;
+					font-family: $font-stack;
+					letter-spacing: 0.03em;
+					outline: none;
+					transition: 0.2s all ease;
+					display: none;
+
+					&:focus {background-color: #3e464a;}
+			    }
+
+			    .prelink { 
+			    	z-index: 2; 
+			    }
+
+			    .postlink { 
+			    	z-index: 3; 
+				}
+
+				.affbtns {
+					float: right;
+				}
+
+				.prelinkbtn { 
+			    	background-color: #2e3437;
+			    	height: 35px;
+			    	line-height: 35px;
+			    	display: inline-block;
+			    	padding: 0px 20px;
+			    	color: #ffffff;
+					font-size: 15px;
+					font-family: $font-stack;
+					letter-spacing: 0.03em;
+					text-decoration: none;
+					margin: 0;
+			    }
+
+			    .postlinkbtn { 
+			    	background-color: #2e3437;
+			    	height: 35px;
+			    	line-height: 35px;
+			    	display: inline-block;
+			    	padding: 0px 20px;
+			    	color: #ffffff;
+					font-size: 15px;
+					font-family: $font-stack;
+					letter-spacing: 0.03em;
+					text-decoration: none;
+					margin: 0;
+				}
+
+			    .active { 
+			    	z-index: 1 !important;
+			    	display: block !important;
+			    }
+
+			    .activebtn { 
+			    	background-color: #616e73 !important;
+			    }
+
+			    }
+
+			.validatebtn {
+			    -webkit-order: 0;
+			    -ms-flex-order: 0;
+			    order: 0;
+			    -webkit-flex: 1 1 auto;
+			    -ms-flex: 1 1 auto;
+			    flex: 1 1 auto;
+			    -webkit-align-self: auto;
+			    -ms-flex-item-align: auto;
+			    align-self: auto;
+			    justify-content: center;
+			    align-items: center;
+			    max-height: 100px;
+
+			    background-color:#00adee;
+
+			    	a {
+			    		display: block;
+			    		line-height: 100px;
+			    		height: 100px;
+			    		text-align: center;
+
+			    		text-decoration: none;
+			    		justify-content: center;
+			    		transition: 0.3s all ease;
+
+		    			color: #fff;
+						font-size: 30px;
+						font-family: $font-stack;
+						letter-spacing: 0.03em;
+
+			    		&:hover { background-color: #0297cf;}
+			    	}
+			    }
+			
+		}
+
+		.content-right {
+			width: 50.5%;
+			float: right;
+			background-color: #212528;
+			min-height: 100%;
+			max-height: 100%;
+			overflow-y: scroll;
+			display: block;
+			position:relative;
+
+		    .errormodule {
+		    	min-height: 90px;
+		    	background-color: #282c30;
+		    	position: relative;
+		    	display: block;
+
+		    	.icondiv {
+		    		float: left;
+		    		width: 90px;
+		    		min-height: 90px;
+		    		text-align: center;
+
+		    		img {
+		    			margin: 0 auto;
+		    			display: block;
+		    			width: 50px;
+		    		}
+
+		    		.helper {
+					    display: inline-block;
+					    height: 100%;
+					    vertical-align: middle;
+					}
+
+		    	}
+
+		    	.errordiv {
+		    		float: left;
+		    		width: calc(100% - 90px);
+		    		display: block;
+
+					.errortitle {
+						color: #ffb430;
+						font-size: 20px;
+						line-height: 25px;
+						font-family: $font-stack;
+						letter-spacing: 0.03em;
+						padding: 20px 20px 0px 0px;
+					}
+
+					.errordesc {
+						color: #d9d9d9;
+						font-size: 15px;
+						line-height: 19px;
+						font-family: $font-stack;
+						letter-spacing: 0.03em;
+						padding: 5px 20px 20px 0px;
+					}
+		    	}
+		    }
+		}
+
+
+	}
+
+
+
+
+			
 }
 
-
-/**************** Your Responsive Styles Below ******************/
-
-@media screen and (max-width: 500px) {
-
-.osr-content { width: 100% !important; }
-
-#wrapper-sc { width: 100% !important;; }
 	
-}
