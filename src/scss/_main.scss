@@ -4,7 +4,7 @@ html, body {
 }
 
 html, body {
-	background: #1A1D1F;
+	background: $dark-grey;
 	width: 100%;
 	height: 100%;
 	margin: 0;
@@ -19,7 +19,7 @@ html, body {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
-
+	position: fixed;
 	height: 100%;
 	width: 100%;
 
@@ -48,7 +48,7 @@ html, body {
 				line-height: 40px;
 				height: 40px;
 				font-size: 20px;
-				font-family: $font-stack;
+				font-family: $font-medium;
 				padding-left: 10px;
 				letter-spacing: 0.03em;
 			}
@@ -78,7 +78,7 @@ html, body {
 				line-height: 40px;
 				height: 40px;
 				font-size: 20px;
-				font-family: $font-stack;
+				font-family: $font-medium;
 				padding-right: 10px;
 				letter-spacing: 0.03em;
 				transition: 0.3s all ease;
@@ -92,7 +92,314 @@ html, body {
 
 	}
 
+	
+	#modalWrapper {
+		visibility: hidden;
+		opacity: 0;
+		width: 100%;
+		height: 0;
+		margin: 0 auto;
+		transition: opacity 0.5s ease;
+		padding-top: 10% !important;
+		position: absolute;
+		z-index: 999;
+		background: rgba(97, 110, 116, 0.7);
+		-ms-transform: scale(0,0); 
+	    -webkit-transform: scale(0,0); 
+	    transform: scale(0,0);
+	
+	
+		#modal {
+			box-sizing: border-box;
+			display: block;
+			font-family: sans-serif;
+			margin: 0px auto;
+			background-color: $dark-grey;
+			width: 685px;
+			position: relative;
 
+			#errorCross {
+				position: absolute;
+				top: -10px;
+				right: -35px;
+				color: #ffffff;
+				text-decoration: none;
+				font-family: $font-light;
+				font-size: 40px;
+				line-height: 40px;
+			}
+
+			.errorCritical, .errorMinor {
+				display: block;
+				float: left;
+				width: 49.6%;
+				background: #ebebeb;
+			}
+
+			#errorLine {
+				display: block;
+				width: 5px;
+				height: 370px;
+				background-color: $dark-grey;
+				float: left;
+			}
+
+			.errorHeader {
+				background: #232b2e;
+				height: 53px;
+				padding: 14px 25px 0px 25px;
+
+				#criticalTitle {
+					font-family: $font-medium;
+					font-size: 20px;
+					line-height: 22px;
+					text-align: left;
+					color: #ed028b;
+					display: block;
+					float: left;
+				}
+
+				#minorTitle {
+					font-family: $font-medium;
+					font-size: 20px;
+					line-height: 22px;
+					text-align: left;
+					color: #ffb300;
+					display: block;
+					float: left;
+				}
+
+				#selectAllCritical:before, #selectAllCritical:after {
+					content: 'Select all';
+					font-family: $font-medium;
+					font-size: 12px;
+					line-height: 14px;
+					background: none;
+					background-color: transparent;
+					color: #ffffff;
+					display: block;
+					float: right;
+					text-decoration: underline;
+					padding-top: 6px;
+					opacity: 1;
+				}
+
+				#selectAllCritical:after {
+					content: 'Deselect all';
+					opacity: 0;
+				}
+
+				#selectCritical {
+					display: none;
+				}
+
+				#selectAllMinor:before, #selectAllMinor:after {
+					content: 'Select all';
+					font-family: $font-medium;
+					font-size: 12px;
+					line-height: 14px;
+					background: none;
+					background-color: transparent;
+					color: #ffffff;
+					display: block;
+					float: right;
+					text-decoration: underline;
+					padding-top: 6px;
+					opacity: 1;
+				}
+
+				#selectAllMinor:after {
+					content: 'Deselect all';
+					opacity: 0;
+				}
+
+				#selectMinor {
+					display: none;
+				}
+
+			}
+
+			.errorList {
+				padding: 25px 20px;
+				height: 316px;
+			}
+
+			/* Critical Checkbox Styles */
+			.errorCritical {
+
+				.errorLabelCheck {
+					background-image: url(../imgs/checkPink.png);
+					background-size: 18px auto;
+					background-repeat: no-repeat;
+					display: block;
+					float: left;
+					width: 18px;
+				}
+
+				.errorCheckboxCritical {
+					position: absolute;
+					overflow: hidden;
+					clip: rect(0,0,0,0);
+					height: 1px;
+					width: 1px;
+					margin: -1px;
+					padding: 0;
+					border: 0;
+				}
+
+				.errorCheckboxCritical + .errorLabelCheck {
+					display: block;
+					background-repeat: no-repeat;
+					background-position: center 0px;
+					vertical-align: middle;
+					cursor: pointer;
+					height: 18px;
+				}
+
+				.errorCheckboxCritical:checked + .errorLabelCheck {
+					background-position: center -30px;
+				}
+
+				.errorLabelText {
+					display: block;
+					float: left;
+					margin-left: 10px;
+					padding-top: 0px;
+					font-family: $font-light;
+					font-size: 17px;
+					line-height: 19px;
+					color: #232b2e;
+					cursor: pointer;
+					&:hover {
+						color: $pink;
+						font-family: $font-medium;
+					}
+				}
+
+			}
+			/* Critical Checkbox Styles */
+
+			/* Minor Checkbox Styles */
+			.errorMinor {
+
+				.errorLabelCheck {
+					background-image: url(../imgs/checkYellow.png);
+					background-size: 18px auto;
+					background-repeat: no-repeat;
+					display: block;
+					float: left;
+					width: 18px;
+					
+				}
+
+				.errorCheckboxMinor {
+					position: absolute;
+					overflow: hidden;
+					clip: rect(0,0,0,0);
+					height: 1px;
+					width: 1px;
+					margin: -1px;
+					padding: 0;
+					border: 0;
+				}
+
+				.errorCheckboxMinor + .errorLabelCheck {
+					display: block;
+					background-repeat: no-repeat;
+					background-position: center 0px;
+					vertical-align: middle;
+					cursor: pointer;
+					height: 18px;
+				}
+
+				.errorCheckboxMinor:checked + .errorLabelCheck {
+					background-position: center -30px;
+				}
+
+				.errorLabelText {
+					display: block;
+					float: left;
+					margin-left: 10px;
+					padding-top: 0px;
+					font-family: $font-light;
+					font-size: 17px;
+					line-height: 19px;
+					color: #232b2e;
+					cursor: pointer;
+					&:hover {
+						color: $yellow;
+						font-family: $font-medium;
+					}
+				}
+				
+			}
+			/* Minor Checkbox Styles */
+			
+			.checkItem {
+				padding-bottom: 12px;
+			}
+		}
+	}
+
+	.activeModal {
+		visibility: visible !important;
+		opacity: 1 !important;
+		height: 100% !important;
+		-ms-transform: scale(1,1) !important; 
+	    -webkit-transform: scale(1,1) !important; 
+	    transform: scale(1,1) !important;
+	}
+
+	/* Tooltip Styles Start */
+	.errorLabelText {
+	    position: relative;
+	    display: inline-block;
+	}
+
+	/* Tooltip text */
+	.errorLabelText .tip {
+	    visibility: hidden;
+	    word-wrap: normal;
+	    width: 380px;
+	    background-color: $light-grey;
+	    font-family: $font-light;
+	    font-size: 13px;
+	    color: $primary-grey;
+	    text-align: center;
+	    padding: 10px 8px;
+	    -webkit-box-shadow: 0 5px 10px 2px rgba(46,52,55,0.2);
+		box-shadow: 0 5px 10px 2px rgba(46,52,55,0.2);
+
+	    /* Position the tooltip text */
+	    position: absolute;
+	    z-index: 1;
+	    bottom: 150%;
+	    left: 50%;
+	    margin-left: -60px;
+
+	    /* Fade in tooltip */
+	    opacity: 0;
+	    transition: opacity 0.2s;
+	}
+
+	/* Tooltip arrow */
+	.errorLabelText .tip::after {
+	    content: "";
+	    position: absolute;
+	    top: 100%;
+	    left: 10%;
+	    margin-left: -10px;
+	    border-width: 10px;
+	    border-style: solid;
+	    border-color: $light-grey transparent transparent transparent;
+	}
+
+	/* Show the tooltip text when you mouse over the tooltip container */
+	.errorLabelText:hover .tip {
+	    visibility: visible;
+	    opacity: 1;
+	}
+	/* Tooltip Styles End */
 
 
 	#content {
@@ -101,10 +408,10 @@ html, body {
 
 		.content-left {
 			float: left;
-			width: 49%;
+			width: 49.8%;
 			color: #fff;
 			min-height: 100%;
-			background-color: #1a1d1f;
+			background-color: $dark-grey;
 
 			display: -ms-flexbox;
 		    display: -webkit-flex;
@@ -141,7 +448,7 @@ html, body {
 			    	flex: 1;
 			    	width: 100%;
 			    	overflow: hidden;
-			    	background-color: #616e73;
+			    	background-color: $medium-grey;
 			    	resize: none;
 			    	border: none;
 			    	outline: none;
@@ -160,14 +467,14 @@ html, body {
 			    align-self: auto;
 			    position: relative;
 
-			    background-color:#1a1d1f;
-			    border-top: 1px solid #616e73;
+			    background-color:$dark-grey;
+			    border-top: 1px solid $medium-grey;
 			    padding: 40px 20px 20px 20px;
 
 			    p {
-			    	color: #00adee;
+			    	color: $blue;
 					font-size: 20px;
-					font-family: $font-stack;
+					font-family: $font-medium;
 					letter-spacing: 0.03em;
 			    }
 
@@ -176,14 +483,14 @@ html, body {
 			    	height: 60px;
 			    	margin-top:15px;
 			    	position: absolute;
-			    	background-color: #2e3437;
-			    	border: 1px solid #616e73;
+			    	background-color: $primary-grey;
+			    	border: 1px solid $medium-grey;
 			    	box-sizing: border-box;
 			    	padding: 10px;
-			    	color: #d9d9d9;
+			    	color: $light-grey;
 					font-size: 15px;
 					line-height: 18px;
-					font-family: $font-stack;
+					font-family: $font-medium;
 					letter-spacing: 0.03em;
 					outline: none;
 					transition: 0.2s all ease;
@@ -205,28 +512,28 @@ html, body {
 				}
 
 				.prelinkbtn { 
-			    	background-color: #2e3437;
+			    	background-color: $primary-grey;
 			    	height: 35px;
 			    	line-height: 35px;
 			    	display: inline-block;
 			    	padding: 0px 20px;
 			    	color: #ffffff;
 					font-size: 15px;
-					font-family: $font-stack;
+					font-family: $font-medium;
 					letter-spacing: 0.03em;
 					text-decoration: none;
 					margin: 0;
 			    }
 
 			    .postlinkbtn { 
-			    	background-color: #2e3437;
+			    	background-color: $primary-grey;
 			    	height: 35px;
 			    	line-height: 35px;
 			    	display: inline-block;
 			    	padding: 0px 20px;
 			    	color: #ffffff;
 					font-size: 15px;
-					font-family: $font-stack;
+					font-family: $font-medium;
 					letter-spacing: 0.03em;
 					text-decoration: none;
 					margin: 0;
@@ -238,7 +545,7 @@ html, body {
 			    }
 
 			    .activebtn { 
-			    	background-color: #616e73 !important;
+			    	background-color: $medium-grey !important;
 			    }
 
 			    }
@@ -257,7 +564,7 @@ html, body {
 			    align-items: center;
 			    max-height: 100px;
 
-			    background-color:#00adee;
+			    background-color:$blue;
 
 			    	a {
 			    		display: block;
@@ -271,7 +578,7 @@ html, body {
 
 		    			color: #fff;
 						font-size: 30px;
-						font-family: $font-stack;
+						font-family: $font-medium;
 						letter-spacing: 0.03em;
 
 			    		&:hover { background-color: #0297cf;}
@@ -281,9 +588,9 @@ html, body {
 		}
 
 		.content-right {
-			width: 50.5%;
+			width: 49.8%;
 			float: right;
-			background-color: #212528;
+			background-color: $primary-grey;
 			min-height: 100%;
 			max-height: 100%;
 			overflow-y: scroll;
@@ -292,7 +599,7 @@ html, body {
 
 		    .errormodule {
 		    	min-height: 90px;
-		    	background-color: #282c30;
+		    	background-color: $primary-grey;
 		    	position: relative;
 		    	display: block;
 
@@ -322,19 +629,19 @@ html, body {
 		    		display: block;
 
 					.errortitle {
-						color: #ffb430;
+						color: $yellow;
 						font-size: 20px;
 						line-height: 25px;
-						font-family: $font-stack;
+						font-family: $font-medium;
 						letter-spacing: 0.03em;
 						padding: 20px 20px 0px 0px;
 					}
 
 					.errordesc {
-						color: #d9d9d9;
+						color: $light-grey;
 						font-size: 15px;
 						line-height: 19px;
-						font-family: $font-stack;
+						font-family: $font-medium;
 						letter-spacing: 0.03em;
 						padding: 5px 20px 20px 0px;
 					}

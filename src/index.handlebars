@@ -19,6 +19,7 @@
         <!-- Jquery -->
         <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
+
         <script src="js/main.js"></script>
 
 
@@ -31,19 +32,126 @@
 
         <div id="wrapper" class="cf">
 
+            
+            <section class="showModal cf" id="modalWrapper">
+                <div id="modal">
+                    <a href="javascript:void(0)" class="hideModal" id="errorCross">&times;</a>
+
+                    <div class="errorCritical cf">
+                        <div class="errorHeader">
+                            <p id="criticalTitle">Critical Errors</p>
+                            <input type="checkbox" id="selectCritical">
+                            <label for="selectCritical" id="selectAllCritical"></label>
+                        </div>
+                        <div class="errorList">
+                            <div class="checkItem cf">
+                                <input type="checkbox" id="criticalErrorOne" class="errorCheckboxCritical">
+                                <label for="criticalErrorOne" class="errorLabelCheck"></label>
+                                <label for="criticalErrorOne" class="errorLabelText" id="labelOne">SC tracking missing<span class="tip">If a link is missing SaleCycle tracking - e.g. [[Link]]8|</span></label>
+                            </div>
+                            <div class="checkItem cf">
+                                <input type="checkbox" id="criticalErrorTwo" class="errorCheckboxCritical">
+                                <label for="criticalErrorTwo" class="errorLabelCheck"></label>
+                                <label for="criticalErrorTwo" class="errorLabelText">SC tracking duplicate<span class="tip">If the SaleCycle tracking is duplicated - e.g [[Link]]8|[[Link]]8|</span></label>
+                            </div>
+                            <div class="checkItem cf">
+                                <input type="checkbox" id="criticalErrorThree" class="errorCheckboxCritical">
+                                <label for="criticalErrorThree" class="errorLabelCheck"></label>
+                                <label for="criticalErrorThree" class="errorLabelText">Recommendation placeholders<span class="tip">If any placeholder inside of the recommended item repeater tags do not begin with [[Recommend</span></label>
+                            </div>
+                            <div class="checkItem cf">
+                                <input type="checkbox" id="criticalErrorFour" class="errorCheckboxCritical">
+                                <label for="criticalErrorFour" class="errorLabelCheck"></label>
+                                <label for="criticalErrorFour" class="errorLabelText">Encoding special characters<span class="tip">If ?, &amp; or + is present in a link</span></label>
+                            </div>
+                            <div class="checkItem cf">
+                                <input type="checkbox" id="criticalErrorFive" class="errorCheckboxCritical">
+                                <label for="criticalErrorFive" class="errorLabelCheck"></label>
+                                <label for="criticalErrorFive" class="errorLabelText">'?' duplicate in links<span class="tip">If a link has 2 or more '?' or [sc_qm]</span></label>
+                            </div>
+                            <div class="checkItem cf">
+                                <input type="checkbox" id="criticalErrorSix" class="errorCheckboxCritical">
+                                <label for="criticalErrorSix" class="errorLabelCheck"></label>
+                                <label for="criticalErrorSix" class="errorLabelText">Session placeholders<span class="tip">If any placeholder inside of the product / recommended item repeater tags is a session placeholder</span></label>
+                            </div>
+                            <div class="checkItem cf">
+                                <input type="checkbox" id="criticalErrorSeven" class="errorCheckboxCritical">
+                                <label for="criticalErrorSeven" class="errorLabelCheck"></label>
+                                <label for="criticalErrorSeven" class="errorLabelText">Affiliate tracking<span class="tip">If the affiliate tracking does not match that which has been pasted into the validator (excluding social media links)</span></label>
+                            </div>
+                            <div class="checkItem cf">
+                                <input type="checkbox" id="criticalErrorEight" class="errorCheckboxCritical">
+                                <label for="criticalErrorEight" class="errorLabelCheck"></label>
+                                <label for="criticalErrorEight" class="errorLabelText">Match VML BG to wrapping TD BG<span class="tip">If the VML background image does not match that of the wrapping td.</span></label>
+                            </div>
+                            <div class="checkItem cf">
+                                <input type="checkbox" id="criticalErrorNine" class="errorCheckboxCritical">
+                                <label for="criticalErrorNine" class="errorLabelCheck"></label>
+                                <label for="criticalErrorNine" class="errorLabelText">Match VML link to containing link<span class="tip">If the VML button link does not match that of the containing 'a' tag link</span></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="errorLine"></div>
+                    <div class="errorMinor cf">
+                        <div class="errorHeader">
+                            <p id="minorTitle">Minor Errors</p>
+                            <input type="checkbox" id="selectMinor">
+                            <label for="selectMinor" id="selectAllMinor"></label>
+                        </div>
+                        <div class="errorList">
+
+                            <div class="checkItem cf">
+                                <input type="checkbox" id="minorErrorOne" class="errorCheckboxMinor">
+                                <label for="minorErrorOne" class="errorLabelCheck"></label>
+                                <label for="minorErrorOne" class="errorLabelText">Title tags<span class="tip">Mousetip 3</span></label>
+                            </div>
+                            <div class="checkItem cf">
+                                <input type="checkbox" id="minorErrorTwo" class="errorCheckboxMinor">
+                                <label for="minorErrorTwo" class="errorLabelCheck"></label>
+                                <label for="minorErrorTwo" class="errorLabelText">Preheader default<span class="tip">Mousetip 3</span></label>
+                            </div>
+                            <div class="checkItem cf">
+                                <input type="checkbox" id="minorErrorThree" class="errorCheckboxMinor">
+                                <label for="minorErrorThree" class="errorLabelCheck"></label>
+                                <label for="minorErrorThree" class="errorLabelText">Webview link<span class="tip">Mousetip 3</span></label>
+                            </div>
+                            <div class="checkItem cf">
+                                <input type="checkbox" id="minorErrorFour" class="errorCheckboxMinor">
+                                <label for="minorErrorFour" class="errorLabelCheck"></label>
+                                <label for="minorErrorFour" class="errorLabelText">Unsubscribe link<span class="tip">Mousetip 3</span></label>
+                            </div>
+                            <div class="checkItem cf">
+                                <input type="checkbox" id="minorErrorFive" class="errorCheckboxMinor">
+                                <label for="minorErrorFive" class="errorLabelCheck"></label>
+                                <label for="minorErrorFive" class="errorLabelText">Alt tags<span class="tip">Mousetip 3</span></label>
+                            </div>
+                            <div class="checkItem cf">
+                                <input type="checkbox" id="minorErrorSix" class="errorCheckboxMinor">
+                                <label for="minorErrorSix" class="errorLabelCheck"></label>
+                                <label for="minorErrorSix" class="errorLabelText">Product / Recommendation repeaters<span class="tip">Mousetip 3</span></label>
+                            </div>
+                            <div class="checkItem cf">
+                                <input type="checkbox" id="minorErrorSeven" class="errorCheckboxMinor">
+                                <label for="minorErrorSeven" class="errorLabelCheck"></label>
+                                <label for="minorErrorSeven" class="errorLabelText">Current year placeholder<span class="tip">Mousetip 3</span></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <header class="cf">
                 <div class="logotitle" class="cf">
                     <img src="http://design.salecycle.com/wp-content/themes/salecycledesign/imgs/SC-logo.svg">
                     <h1>SC Email Validator</h1>
                 </div>
                 <div class="errorchecklist" class="cf">
-                    <a href="#"><h2>Error Checklist</h2>
+                    <a href="javascript:void(0)" class="errorChecklist"><h2>Error Checklist</h2>
                     <img src="./imgs/checklisticon2.png"></a>
                 </div>
             </header>
 
-
-            <section id="content">
+            <section class="cf" id="content">
 
                 <div class="content-left">
                     <div class="codebox">
@@ -68,146 +176,6 @@
                 <div class="content-right">
 
                     <!-- Start of Error Module -->
-                    <div class="errormodule cf">
-                        <div class="icondiv cf">
-                            <span class="helper"></span><img src="./imgs/minoricon.png">
-                        </div>
-                        <div class="errordiv cf">
-                            <p class="errortitle cf">Preheader remains as default</p>
-                            <p class="errordesc cf">Line 54 - ‘Don't Miss Out - Complete Your Order Today!’</p>
-                        </div>
-                    </div>
-                     <!-- End of Error Module -->
-
-
-
-                     <!-- Start of Error Module -->
-                    <div class="errormodule cf">
-                        <div class="icondiv cf">
-                            <span class="helper"></span><img src="./imgs/minoricon.png">
-                        </div>
-                        <div class="errordiv cf">
-                            <p class="errortitle cf">Preheader remains as default</p>
-                            <p class="errordesc cf">Line 54 - ‘Don't Miss Out - Complete Your Order Today!’</p>
-                        </div>
-                    </div>
-                     <!-- End of Error Module -->
-
-
-
-                     <!-- Start of Error Module -->
-                    <div class="errormodule cf">
-                        <div class="icondiv cf">
-                            <span class="helper"></span><img src="./imgs/minoricon.png">
-                        </div>
-                        <div class="errordiv cf">
-                            <p class="errortitle cf">Preheader remains as default</p>
-                            <p class="errordesc cf">Line 54 - ‘Don't Miss Out - Complete Your Order Today!’</p>
-                        </div>
-                    </div>
-                     <!-- End of Error Module -->
-
-
-
-                     <!-- Start of Error Module -->
-                    <div class="errormodule cf">
-                        <div class="icondiv cf">
-                            <span class="helper"></span><img src="./imgs/minoricon.png">
-                        </div>
-                        <div class="errordiv cf">
-                            <p class="errortitle cf">Preheader remains as default</p>
-                            <p class="errordesc cf">Line 54 - ‘Don't Miss Out - Complete Your Order Today!’</p>
-                        </div>
-                    </div>
-                     <!-- End of Error Module -->
-
-
-
-                     <!-- Start of Error Module -->
-                    <div class="errormodule cf">
-                        <div class="icondiv cf">
-                            <span class="helper"></span><img src="./imgs/minoricon.png">
-                        </div>
-                        <div class="errordiv cf">
-                            <p class="errortitle cf">Preheader remains as default</p>
-                            <p class="errordesc cf">Line 54 - ‘Don't Miss Out - Complete Your Order Today!’</p>
-                        </div>
-                    </div>
-                     <!-- End of Error Module -->
-
-
-
-                     <!-- Start of Error Module -->
-                    <div class="errormodule cf">
-                        <div class="icondiv cf">
-                            <span class="helper"></span><img src="./imgs/minoricon.png">
-                        </div>
-                        <div class="errordiv cf">
-                            <p class="errortitle cf">Preheader remains as default</p>
-                            <p class="errordesc cf">Line 54 - ‘Don't Miss Out - Complete Your Order Today!’</p>
-                        </div>
-                    </div>
-                     <!-- End of Error Module -->
-
-
-
-                     <!-- Start of Error Module -->
-                    <div class="errormodule cf">
-                        <div class="icondiv cf">
-                            <span class="helper"></span><img src="./imgs/minoricon.png">
-                        </div>
-                        <div class="errordiv cf">
-                            <p class="errortitle cf">Preheader remains as default</p>
-                            <p class="errordesc cf">Line 54 - ‘Don't Miss Out - Complete Your Order Today!’</p>
-                        </div>
-                    </div>
-                     <!-- End of Error Module -->
-
-
-
-                     <!-- Start of Error Module -->
-                    <div class="errormodule cf">
-                        <div class="icondiv cf">
-                            <span class="helper"></span><img src="./imgs/minoricon.png">
-                        </div>
-                        <div class="errordiv cf">
-                            <p class="errortitle cf">Preheader remains as default</p>
-                            <p class="errordesc cf">Line 54 - ‘Don't Miss Out - Complete Your Order Today!’</p>
-                        </div>
-                    </div>
-                     <!-- End of Error Module -->
-
-
-
-                     <!-- Start of Error Module -->
-                    <div class="errormodule cf">
-                        <div class="icondiv cf">
-                            <span class="helper"></span><img src="./imgs/minoricon.png">
-                        </div>
-                        <div class="errordiv cf">
-                            <p class="errortitle cf">Preheader remains as default</p>
-                            <p class="errordesc cf">Line 54 - ‘Don't Miss Out - Complete Your Order Today!’</p>
-                        </div>
-                    </div>
-                     <!-- End of Error Module -->
-
-
-
-                     <!-- Start of Error Module -->
-                    <div class="errormodule cf">
-                        <div class="icondiv cf">
-                            <span class="helper"></span><img src="./imgs/minoricon.png">
-                        </div>
-                        <div class="errordiv cf">
-                            <p class="errortitle cf">Preheader remains as default</p>
-                            <p class="errordesc cf">Line 54 - ‘Don't Miss Out - Complete Your Order Today!’</p>
-                        </div>
-                    </div>
-                     <!-- End of Error Module -->
-
-
-
-                     <!-- Start of Error Module -->
                     <div class="errormodule cf">
                         <div class="icondiv cf">
                             <span class="helper"></span><img src="./imgs/minoricon.png">

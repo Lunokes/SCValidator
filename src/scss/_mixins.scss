@@ -1,20 +1,26 @@
 // Brand Colors
-$primary-dark: #282828;
-$white50: #868686;
-$lightgrey: #e1e1e1;
+$primary-grey: #232b2e;
+$dark-grey: #1a1d1f;
+$medium-grey: #616e73;
+$light-grey: #ebebeb;
+$pink: #ed028b;
+$yellow: #ffb300;
+$blue: #00adee;
+
 
 
 // Font Stack - EXAMPLE CODE: font-family: $font-stack
-$font-stack: 'Lato', Arial, sans-serif;
+$font-light: 'Whitney-Light', Arial, sans-serif;
+$font-medium: 'Whitney-Medium', Arial, sans-serif;
 
 
-// Font Face - EXAMPLE CODE: @include font-face(lato,lato) 
+// Font Face - EXAMPLE CODE: @include font-face(Whitney-Light,Whitney-Light) 
 @mixin font-face($fontfamily, $fontname){
 	@font-face {
 	font-family: '#{$fontfamily}';
     src: url('../fonts/#{$fontname}.eot');
-    src: url('../fonts/.svg##{$fontfamily}') format('svg'),
-          url('../fonts/#{$fontname}.eot?#iefix') format('embedded-opentype'),
+    src: url('../fonts/#{$fontname}.svg##{$fontfamily}') format('svg'),
+         url('../fonts/#{$fontname}.eot?#iefix') format('embedded-opentype'),
          url('../fonts/#{$fontname}.woff') format('woff'),
          url('../fonts/#{$fontname}.ttf') format('truetype');
     font-weight: normal;
